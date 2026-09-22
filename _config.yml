@@ -1,0 +1,5 @@
+# Mantém o GitHub Pages leve. Os PDFs e capas continuam no repositório
+# e são carregados diretamente pelo raw.githubusercontent.com.
+exclude:
+  - "2-Superman O Legado das estrelas"
+  - "3-Superman Origem secreta"

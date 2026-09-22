@@ -1,0 +1,104 @@
+name: Gerar capas dos PDFs
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '**/*.pdf'
+      - 'catalogo.json'
+      - '.github/workflows/pdf-covers.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: acervo2-pdf-covers
+  cancel-in-progress: true
+
+jobs:
+  capas:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar dependências
+        run: python -m pip install --upgrade pymupdf pillow
+
+      - name: Gerar capas e contar páginas
+        shell: bash
+        run: |
+          python <<'PY'
+          from pathlib import Path
+          from urllib.parse import unquote
+          import json, fitz
+          from PIL import Image
+
+          root=Path('.')
+          catalog_path=root/'catalogo.json'
+          catalog=json.loads(catalog_path.read_text(encoding='utf-8'))
+          raw='https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/'
+
+          by_id={}
+          for col in catalog.get('collections',[]):
+              for issue in col.get('issues',[]):
+                  by_id[str(issue.get('id'))]=issue
+
+          changed=0
+          for item in catalog.get('items',[]):
+              if item.get('format')!='pdf':
+                  continue
+              url=str(item.get('file') or '')
+              if not url.startswith(raw):
+                  continue
+              pdf=root/unquote(url[len(raw):])
+              if not pdf.exists():
+                  print('PDF não encontrado:',pdf)
+                  continue
+
+              cover=pdf.with_name(pdf.stem+'-cover.webp')
+              doc=fitz.open(pdf)
+              try:
+                  item['pageCount']=doc.page_count
+                  if str(item.get('id')) in by_id:
+                      by_id[str(item.get('id'))]['pageCount']=doc.page_count
+                  if not cover.exists() or cover.stat().st_mtime < pdf.stat().st_mtime:
+                      page=doc.load_page(0)
+                      pix=page.get_pixmap(matrix=fitz.Matrix(1.7,1.7),alpha=False)
+                      image=Image.frombytes('RGB',(pix.width,pix.height),pix.samples)
+                      image.thumbnail((900,1400),Image.Resampling.LANCZOS)
+                      image.save(cover,'WEBP',quality=84,method=6)
+                      changed+=1
+              finally:
+                  doc.close()
+
+              cover_url=raw+cover.as_posix().replace(' ','%20')
+              item['cover']=cover_url
+              if str(item.get('id')) in by_id:
+                  by_id[str(item.get('id'))]['cover']=cover_url
+
+          catalog_path.write_text(json.dumps(catalog,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print('Capas novas/atualizadas:',changed)
+          PY
+
+      - name: Salvar alterações
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add catalogo.json
+          find . -name '*-cover.webp' -print0 | xargs -0 -r git add
+          if git diff --cached --quiet; then
+            echo "Nenhuma alteração necessária."
+          else
+            git commit -m "Gerar capas e metadados dos PDFs"
+            git push
+          fi
