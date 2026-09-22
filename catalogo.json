@@ -451,6 +451,42 @@
           "pageCount": 28
         }
       ]
+    },
+    {
+      "id": "o-maskara",
+      "title": "O Máskara",
+      "issues": [
+        {
+          "id": "o-maskara-1",
+          "issue": 1,
+          "title": "O Máskara #1",
+          "format": "pdf",
+          "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/9-O%20M%C3%A1skara/OM-1.pdf",
+          "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/9-O%20M%C3%A1skara/OM-1-cover.webp",
+          "size": 15988505,
+          "pageCount": 150
+        },
+        {
+          "id": "o-maskara-2",
+          "issue": 2,
+          "title": "O Máskara #2",
+          "format": "pdf",
+          "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/9-O%20M%C3%A1skara/OM-2.pdf",
+          "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/9-O%20M%C3%A1skara/OM-2-cover.webp",
+          "size": 17026539,
+          "pageCount": 102
+        },
+        {
+          "id": "o-maskara-3",
+          "issue": 3,
+          "title": "O Máskara #3",
+          "format": "pdf",
+          "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/9-O%20M%C3%A1skara/OM-3.pdf",
+          "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/9-O%20M%C3%A1skara/OM-3-cover.webp",
+          "size": 16647285,
+          "pageCount": 124
+        }
+      ]
     }
   ],
   "items": [
@@ -945,9 +981,45 @@
       "pageCount": 28,
       "collectionId": "o-fantasma",
       "collectionTitle": "O Fantasma"
+    },
+    {
+      "id": "o-maskara-1",
+      "issue": 1,
+      "title": "O Máskara #1",
+      "format": "pdf",
+      "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/9-O%20M%C3%A1skara/OM-1.pdf",
+      "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/9-O%20M%C3%A1skara/OM-1-cover.webp",
+      "size": 15988505,
+      "pageCount": 150,
+      "collectionId": "o-maskara",
+      "collectionTitle": "O Máskara"
+    },
+    {
+      "id": "o-maskara-2",
+      "issue": 2,
+      "title": "O Máskara #2",
+      "format": "pdf",
+      "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/9-O%20M%C3%A1skara/OM-2.pdf",
+      "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/9-O%20M%C3%A1skara/OM-2-cover.webp",
+      "size": 17026539,
+      "pageCount": 102,
+      "collectionId": "o-maskara",
+      "collectionTitle": "O Máskara"
+    },
+    {
+      "id": "o-maskara-3",
+      "issue": 3,
+      "title": "O Máskara #3",
+      "format": "pdf",
+      "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/9-O%20M%C3%A1skara/OM-3.pdf",
+      "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/9-O%20M%C3%A1skara/OM-3-cover.webp",
+      "size": 16647285,
+      "pageCount": 124,
+      "collectionId": "o-maskara",
+      "collectionTitle": "O Máskara"
     }
   ],
-  "itemCount": 41,
+  "itemCount": 44,
   "assetHost": "raw.githubusercontent.com",
   "assetBase": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/"
 }
