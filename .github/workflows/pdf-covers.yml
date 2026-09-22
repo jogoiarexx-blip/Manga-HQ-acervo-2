@@ -100,5 +100,6 @@ jobs:
             echo "Nenhuma alteração necessária."
           else
             git commit -m "Gerar capas e metadados dos PDFs"
+            git pull --rebase origin main
             git push
           fi
