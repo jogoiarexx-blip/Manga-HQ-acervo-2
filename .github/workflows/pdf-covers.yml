@@ -6,7 +6,6 @@ on:
     branches: [main]
     paths:
       - '**/*.pdf'
-      - 'catalogo.json'
       - '.github/workflows/pdf-covers.yml'
 
 permissions:
@@ -33,60 +32,92 @@ jobs:
       - name: Instalar dependências
         run: python -m pip install --upgrade pymupdf pillow
 
-      - name: Gerar capas e contar páginas
+      - name: Gerar catálogo, capas e páginas
         shell: bash
         run: |
           python <<'PY'
           from pathlib import Path
-          from urllib.parse import unquote
-          import json, fitz
+          from urllib.parse import quote
+          import json, re, unicodedata, fitz
           from PIL import Image
 
-          root=Path('.')
-          catalog_path=root/'catalogo.json'
-          catalog=json.loads(catalog_path.read_text(encoding='utf-8'))
-          raw='https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/'
+          root = Path('.')
+          raw = 'https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/'
 
-          by_id={}
-          for col in catalog.get('collections',[]):
-              for issue in col.get('issues',[]):
-                  by_id[str(issue.get('id'))]=issue
+          def slug(text):
+              s = unicodedata.normalize('NFKD', text).encode('ascii','ignore').decode('ascii').lower()
+              return re.sub(r'[^a-z0-9]+','-',s).strip('-')
 
-          changed=0
-          for item in catalog.get('items',[]):
-              if item.get('format')!='pdf':
-                  continue
-              url=str(item.get('file') or '')
-              if not url.startswith(raw):
-                  continue
-              pdf=root/unquote(url[len(raw):])
-              if not pdf.exists():
-                  print('PDF não encontrado:',pdf)
-                  continue
+          def clean_title(folder):
+              return re.sub(r'^\d+\s*-\s*','',folder).strip()
 
-              cover=pdf.with_name(pdf.stem+'-cover.webp')
-              doc=fitz.open(pdf)
+          def url_path(path):
+              return '/'.join(quote(part, safe='') for part in Path(path).as_posix().split('/'))
+
+          pdfs = sorted(root.glob('*/*.pdf'), key=lambda p: (p.parent.name.casefold(), int((re.search(r'-(\d+)\.pdf$', p.name, re.I) or ['','0'])[1])))
+          grouped = {}
+
+          for pdf in pdfs:
+              folder = pdf.parent.name
+              title = clean_title(folder)
+              match = re.search(r'-(\d+)\.pdf$', pdf.name, re.I)
+              if not match:
+                  print('Ignorado sem número de edição:', pdf)
+                  continue
+              issue = int(match.group(1))
+              cid = slug(title)
+              cover = pdf.with_name(pdf.stem + '-cover.webp')
+
+              doc = fitz.open(pdf)
               try:
-                  item['pageCount']=doc.page_count
-                  if str(item.get('id')) in by_id:
-                      by_id[str(item.get('id'))]['pageCount']=doc.page_count
+                  page_count = doc.page_count
                   if not cover.exists() or cover.stat().st_mtime < pdf.stat().st_mtime:
-                      page=doc.load_page(0)
-                      pix=page.get_pixmap(matrix=fitz.Matrix(1.7,1.7),alpha=False)
-                      image=Image.frombytes('RGB',(pix.width,pix.height),pix.samples)
+                      page = doc.load_page(0)
+                      pix = page.get_pixmap(matrix=fitz.Matrix(1.7,1.7), alpha=False)
+                      image = Image.frombytes('RGB',(pix.width,pix.height),pix.samples)
                       image.thumbnail((900,1400),Image.Resampling.LANCZOS)
                       image.save(cover,'WEBP',quality=84,method=6)
-                      changed+=1
+                      print('CAPA:', cover)
               finally:
                   doc.close()
 
-              cover_url=raw+cover.as_posix().replace(' ','%20')
-              item['cover']=cover_url
-              if str(item.get('id')) in by_id:
-                  by_id[str(item.get('id'))]['cover']=cover_url
+              entry = {
+                  'id': f'{cid}-{issue}',
+                  'issue': issue,
+                  'title': f'{title} #{issue}',
+                  'format': 'pdf',
+                  'file': raw + url_path(pdf),
+                  'cover': raw + url_path(cover),
+                  'size': pdf.stat().st_size,
+                  'pageCount': page_count
+              }
+              grouped.setdefault(folder, {'id':cid,'title':title,'issues':[]})['issues'].append(entry)
 
-          catalog_path.write_text(json.dumps(catalog,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-          print('Capas novas/atualizadas:',changed)
+          def folder_number(name):
+              m = re.match(r'^(\d+)', name)
+              return int(m.group(1)) if m else 999999
+
+          collections = []
+          flat = []
+          for folder in sorted(grouped, key=lambda x:(folder_number(x),x.casefold())):
+              col = grouped[folder]
+              col['issues'].sort(key=lambda x:x['issue'])
+              collections.append(col)
+              flat.extend({**x,'collectionId':col['id'],'collectionTitle':col['title']} for x in col['issues'])
+
+          catalog = {
+              'schemaVersion': 1,
+              'name': 'Manga HQ Acervo 2',
+              'format': 'pdf',
+              'supportedFormats': ['pdf'],
+              'collections': collections,
+              'items': flat,
+              'itemCount': len(flat),
+              'assetHost': 'raw.githubusercontent.com',
+              'assetBase': raw
+          }
+          Path('catalogo.json').write_text(json.dumps(catalog,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print('PDFs catalogados:', len(flat))
           PY
 
       - name: Salvar alterações
@@ -99,7 +130,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "Nenhuma alteração necessária."
           else
-            git commit -m "Gerar capas e metadados dos PDFs"
+            git commit -m "Atualizar catálogo e capas dos PDFs"
             git pull --rebase origin main
             git push
           fi
