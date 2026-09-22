@@ -48,8 +48,15 @@ jobs:
               s = unicodedata.normalize('NFKD', text).encode('ascii','ignore').decode('ascii').lower()
               return re.sub(r'[^a-z0-9]+','-',s).strip('-')
 
+          TITLE_OVERRIDES = {
+              '2-Superman O Legado das estrelas': 'Superman O Legado das Estrelas',
+              '3-Superman Origem secreta': 'Superman Origem Secreta',
+              '5-Superman As Quatro Estações': 'Superman As Quatro Estações',
+              '6-Superman A Morte do Superman': 'Superman A Morte do Superman',
+          }
+
           def clean_title(folder):
-              return re.sub(r'^\d+\s*-\s*','',folder).strip()
+              return TITLE_OVERRIDES.get(folder, re.sub(r'^\d+\s*-\s*','',folder).strip())
 
           def url_path(path):
               return '/'.join(quote(part, safe='') for part in Path(path).as_posix().split('/'))
