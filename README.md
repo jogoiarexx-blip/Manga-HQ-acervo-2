@@ -13,7 +13,9 @@ Segundo acervo externo para consumo pelo Manga-HQ-hub.
 - Superman As Quatro Estações #1 a #4
 - Superman A Morte do Superman #1 a #7
 
-Total: **29 edições**.
+- Sucata Joe #1 a #6
+
+Total: **35 edições**.
 
 ## Estrutura
 

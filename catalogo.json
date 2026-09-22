@@ -319,6 +319,72 @@
           "pageCount": 28
         }
       ]
+    },
+    {
+      "id": "sucata-joe",
+      "title": "Sucata Joe",
+      "issues": [
+        {
+          "id": "sucata-joe-1",
+          "issue": 1,
+          "title": "Sucata Joe #1",
+          "format": "pdf",
+          "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/7-Sucata%20Joe/SJ-1.pdf",
+          "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/7-Sucata%20Joe/SJ-1-cover.webp",
+          "size": 17043997,
+          "pageCount": null
+        },
+        {
+          "id": "sucata-joe-2",
+          "issue": 2,
+          "title": "Sucata Joe #2",
+          "format": "pdf",
+          "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/7-Sucata%20Joe/SJ-2.pdf",
+          "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/7-Sucata%20Joe/SJ-2-cover.webp",
+          "size": 10985364,
+          "pageCount": null
+        },
+        {
+          "id": "sucata-joe-3",
+          "issue": 3,
+          "title": "Sucata Joe #3",
+          "format": "pdf",
+          "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/7-Sucata%20Joe/SJ-3.pdf",
+          "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/7-Sucata%20Joe/SJ-3-cover.webp",
+          "size": 13944486,
+          "pageCount": null
+        },
+        {
+          "id": "sucata-joe-4",
+          "issue": 4,
+          "title": "Sucata Joe #4",
+          "format": "pdf",
+          "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/7-Sucata%20Joe/SJ-4.pdf",
+          "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/7-Sucata%20Joe/SJ-4-cover.webp",
+          "size": 12181016,
+          "pageCount": null
+        },
+        {
+          "id": "sucata-joe-5",
+          "issue": 5,
+          "title": "Sucata Joe #5",
+          "format": "pdf",
+          "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/7-Sucata%20Joe/SJ-5.pdf",
+          "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/7-Sucata%20Joe/SJ-5-cover.webp",
+          "size": 13092640,
+          "pageCount": null
+        },
+        {
+          "id": "sucata-joe-6",
+          "issue": 6,
+          "title": "Sucata Joe #6",
+          "format": "pdf",
+          "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/7-Sucata%20Joe/SJ-6.pdf",
+          "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/7-Sucata%20Joe/SJ-6-cover.webp",
+          "size": 16759562,
+          "pageCount": null
+        }
+      ]
     }
   ],
   "items": [
@@ -669,9 +735,81 @@
       "pageCount": 28,
       "collectionId": "superman-a-morte-do-superman",
       "collectionTitle": "Superman A Morte do Superman"
+    },
+    {
+      "id": "sucata-joe-1",
+      "issue": 1,
+      "title": "Sucata Joe #1",
+      "format": "pdf",
+      "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/7-Sucata%20Joe/SJ-1.pdf",
+      "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/7-Sucata%20Joe/SJ-1-cover.webp",
+      "size": 17043997,
+      "pageCount": null,
+      "collectionId": "sucata-joe",
+      "collectionTitle": "Sucata Joe"
+    },
+    {
+      "id": "sucata-joe-2",
+      "issue": 2,
+      "title": "Sucata Joe #2",
+      "format": "pdf",
+      "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/7-Sucata%20Joe/SJ-2.pdf",
+      "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/7-Sucata%20Joe/SJ-2-cover.webp",
+      "size": 10985364,
+      "pageCount": null,
+      "collectionId": "sucata-joe",
+      "collectionTitle": "Sucata Joe"
+    },
+    {
+      "id": "sucata-joe-3",
+      "issue": 3,
+      "title": "Sucata Joe #3",
+      "format": "pdf",
+      "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/7-Sucata%20Joe/SJ-3.pdf",
+      "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/7-Sucata%20Joe/SJ-3-cover.webp",
+      "size": 13944486,
+      "pageCount": null,
+      "collectionId": "sucata-joe",
+      "collectionTitle": "Sucata Joe"
+    },
+    {
+      "id": "sucata-joe-4",
+      "issue": 4,
+      "title": "Sucata Joe #4",
+      "format": "pdf",
+      "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/7-Sucata%20Joe/SJ-4.pdf",
+      "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/7-Sucata%20Joe/SJ-4-cover.webp",
+      "size": 12181016,
+      "pageCount": null,
+      "collectionId": "sucata-joe",
+      "collectionTitle": "Sucata Joe"
+    },
+    {
+      "id": "sucata-joe-5",
+      "issue": 5,
+      "title": "Sucata Joe #5",
+      "format": "pdf",
+      "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/7-Sucata%20Joe/SJ-5.pdf",
+      "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/7-Sucata%20Joe/SJ-5-cover.webp",
+      "size": 13092640,
+      "pageCount": null,
+      "collectionId": "sucata-joe",
+      "collectionTitle": "Sucata Joe"
+    },
+    {
+      "id": "sucata-joe-6",
+      "issue": 6,
+      "title": "Sucata Joe #6",
+      "format": "pdf",
+      "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/7-Sucata%20Joe/SJ-6.pdf",
+      "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/7-Sucata%20Joe/SJ-6-cover.webp",
+      "size": 16759562,
+      "pageCount": null,
+      "collectionId": "sucata-joe",
+      "collectionTitle": "Sucata Joe"
     }
   ],
-  "itemCount": 29,
+  "itemCount": 35,
   "assetHost": "raw.githubusercontent.com",
   "assetBase": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/"
 }

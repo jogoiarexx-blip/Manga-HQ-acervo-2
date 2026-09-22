@@ -55,6 +55,8 @@ jobs:
               '6-Superman A Morte do Superman': 'Superman A Morte do Superman',
           }
 
+          TITLE_OVERRIDES['7-Sucata Joe'] = 'Sucata Joe'
+
           def clean_title(folder):
               return TITLE_OVERRIDES.get(folder, re.sub(r'^\d+\s*-\s*','',folder).strip())
 
