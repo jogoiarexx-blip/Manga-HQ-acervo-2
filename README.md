@@ -9,9 +9,9 @@ Segundo acervo externo para consumo pelo Manga-HQ-hub.
 ## Conteúdo atual
 
 - Superman O Legado das Estrelas #1 a #12
-- Superman Origem Secreta #1 a #3
+- Superman Origem Secreta #1 a #6
 
-Total: **15 edições**.
+Total: **18 edições**.
 
 ## Estrutura
 
