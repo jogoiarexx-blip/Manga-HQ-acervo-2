@@ -487,6 +487,62 @@
           "pageCount": 124
         }
       ]
+    },
+    {
+      "id": "ciclope",
+      "title": "Ciclope",
+      "issues": [
+        {
+          "id": "ciclope-1",
+          "issue": 1,
+          "title": "Ciclope #1",
+          "format": "pdf",
+          "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/10-Ciclope/C-1.pdf",
+          "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/10-Ciclope/C-1-cover.webp",
+          "size": 23772860,
+          "pageCount": 33
+        },
+        {
+          "id": "ciclope-2",
+          "issue": 2,
+          "title": "Ciclope #2",
+          "format": "pdf",
+          "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/10-Ciclope/C-2.pdf",
+          "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/10-Ciclope/C-2-cover.webp",
+          "size": 20018369,
+          "pageCount": 26
+        },
+        {
+          "id": "ciclope-3",
+          "issue": 3,
+          "title": "Ciclope #3",
+          "format": "pdf",
+          "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/10-Ciclope/C-3.pdf",
+          "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/10-Ciclope/C-3-cover.webp",
+          "size": 24497911,
+          "pageCount": 26
+        },
+        {
+          "id": "ciclope-4",
+          "issue": 4,
+          "title": "Ciclope #4",
+          "format": "pdf",
+          "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/10-Ciclope/C-4.pdf",
+          "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/10-Ciclope/C-4-cover.webp",
+          "size": 23335760,
+          "pageCount": 25
+        },
+        {
+          "id": "ciclope-5",
+          "issue": 5,
+          "title": "Ciclope #5",
+          "format": "pdf",
+          "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/10-Ciclope/C-5.pdf",
+          "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/10-Ciclope/C-5-cover.webp",
+          "size": 20447709,
+          "pageCount": 22
+        }
+      ]
     }
   ],
   "items": [
@@ -1017,9 +1073,69 @@
       "pageCount": 124,
       "collectionId": "o-maskara",
       "collectionTitle": "O Máskara"
+    },
+    {
+      "id": "ciclope-1",
+      "issue": 1,
+      "title": "Ciclope #1",
+      "format": "pdf",
+      "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/10-Ciclope/C-1.pdf",
+      "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/10-Ciclope/C-1-cover.webp",
+      "size": 23772860,
+      "pageCount": 33,
+      "collectionId": "ciclope",
+      "collectionTitle": "Ciclope"
+    },
+    {
+      "id": "ciclope-2",
+      "issue": 2,
+      "title": "Ciclope #2",
+      "format": "pdf",
+      "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/10-Ciclope/C-2.pdf",
+      "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/10-Ciclope/C-2-cover.webp",
+      "size": 20018369,
+      "pageCount": 26,
+      "collectionId": "ciclope",
+      "collectionTitle": "Ciclope"
+    },
+    {
+      "id": "ciclope-3",
+      "issue": 3,
+      "title": "Ciclope #3",
+      "format": "pdf",
+      "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/10-Ciclope/C-3.pdf",
+      "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/10-Ciclope/C-3-cover.webp",
+      "size": 24497911,
+      "pageCount": 26,
+      "collectionId": "ciclope",
+      "collectionTitle": "Ciclope"
+    },
+    {
+      "id": "ciclope-4",
+      "issue": 4,
+      "title": "Ciclope #4",
+      "format": "pdf",
+      "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/10-Ciclope/C-4.pdf",
+      "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/10-Ciclope/C-4-cover.webp",
+      "size": 23335760,
+      "pageCount": 25,
+      "collectionId": "ciclope",
+      "collectionTitle": "Ciclope"
+    },
+    {
+      "id": "ciclope-5",
+      "issue": 5,
+      "title": "Ciclope #5",
+      "format": "pdf",
+      "file": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/10-Ciclope/C-5.pdf",
+      "cover": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/10-Ciclope/C-5-cover.webp",
+      "size": 20447709,
+      "pageCount": 22,
+      "collectionId": "ciclope",
+      "collectionTitle": "Ciclope"
     }
   ],
-  "itemCount": 44,
+  "itemCount": 49,
   "assetHost": "raw.githubusercontent.com",
   "assetBase": "https://raw.githubusercontent.com/jogoiarexx-blip/Manga-HQ-acervo-2/main/"
 }
